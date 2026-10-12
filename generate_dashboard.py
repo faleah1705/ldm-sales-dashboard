@@ -57,8 +57,12 @@ html_content = f"""
 </html>
 """
 
-# 4. Save the output
-with open("index.html", "w") as f:
+# Create a dedicated directory for the deployment artifact
+import os
+os.makedirs("public", exist_ok=True)
+
+# 4. Save the output directly into the public folder
+with open("public/index.html", "w") as f:
     f.write(html_content)
 
-print("Dashboard successfully generated as index.html!")
+print("Dashboard successfully generated inside public/index.html!")
