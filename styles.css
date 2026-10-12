@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LDM Sales Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">L</div>
+          <div>
+            <p class="eyebrow">Beverage sales</p>
+            <h1>LDM COM LTD</h1>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active">Overview</button>
+          <button class="nav-item">Products</button>
+          <button class="nav-item">Customers</button>
+          <button class="nav-item">Transactions</button>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Sales snapshot</p>
+          <h3 id="sidebar-period">Last 30 days</h3>
+          <div class="mini-metric">
+            <span>Top SKU</span>
+            <strong id="top-sku">—</strong>
+          </div>
+          <div class="mini-metric">
+            <span>Best customer</span>
+            <strong id="best-customer">—</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h2>Product Sales Report</h2>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span>🔎</span>
+              <input id="search-input" type="text" placeholder="Search product or customer" />
+            </label>
+          </div>
+        </header>
+
+        <section class="summary-grid" id="summary-grid"></section>
+
+        <section class="panel-grid panel-grid-2">
+          <article class="panel large-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Performance</p>
+                <h3>Revenue trend</h3>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="revenue-chart" height="220"></canvas>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Mix</p>
+                <h3>Payment methods</h3>
+              </div>
+            </div>
+            <div id="payment-breakdown" class="breakdown-list"></div>
+          </article>
+        </section>
+
+        <section class="panel-grid panel-grid-2">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Top sellers</p>
+                <h3>Products by revenue</h3>
+              </div>
+            </div>
+            <div id="product-list" class="bar-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Customers</p>
+                <h3>Top buyers</h3>
+              </div>
+            </div>
+            <div id="customer-list" class="bar-list"></div>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Records</p>
+              <h3>Recent transactions</h3>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Product</th>
+                  <th>Invoice</th>
+                  <th>Date</th>
+                  <th>Qty</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="transaction-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
